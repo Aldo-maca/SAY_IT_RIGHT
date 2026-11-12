@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- Say it right · © 2026 MCRn_Technologies2026 · Todos los derechos reservados -->
+<meta name="author" content="MCRn_Technologies2026">
+<meta name="copyright" content="© 2026 MCRn_Technologies2026">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Say it right: English Vocabulary</title>
+<style>
+:root{
+  --bg:#EEF3F8; --ink:#14263A; --muted:#5B6B7C; --card:#FFFFFF;
+  --navy:#1C3D5A; --sun:#F2B632; --ok:#2E8B57; --mid:#D98A1F; --bad:#C0463C; --line:#D5DEE8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;line-height:1.5}
+header{background:var(--navy);color:#fff;padding:18px 20px 0}
+header h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.7rem;letter-spacing:.2px}
+header p{margin:2px 0 12px;color:#BFD0E0;font-size:.95rem}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button{border:0;background:transparent;color:#BFD0E0;padding:10px 18px;font:inherit;font-size:1rem;cursor:pointer;border-radius:8px 8px 0 0}
+nav button.on{background:var(--bg);color:var(--navy);font-weight:700}
+nav button:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+main{max-width:960px;margin:0 auto;padding:22px 16px 60px}
+section{display:none}section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+h2{font-family:Georgia,serif;margin:0 0 10px;font-size:1.4rem}
+label{display:block;font-weight:700;margin:12px 0 4px}
+input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+.btn{border:0;background:var(--navy);color:#fff;padding:11px 18px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
+.btn.sun{background:var(--sun);color:#14263A}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--navy)}
+.btn.rec.live{background:var(--bad)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.msg{margin-top:10px;font-weight:700}
+.who{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;display:inline-block;margin-bottom:14px}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:18px}
+.list{max-height:520px;overflow:auto;padding:8px}
+.list button{display:flex;justify-content:space-between;width:100%;border:0;background:transparent;padding:9px 10px;border-radius:8px;font:inherit;cursor:pointer;text-align:left}
+.list button:hover{background:#F2F6FA}
+.list button.sel{background:#E3EDF7;font-weight:700}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--line);align-self:center;flex:none}
+.dot.ok{background:var(--ok)}.dot.mid{background:var(--mid)}.dot.bad{background:var(--bad)}
+.big{font-family:Georgia,serif;font-size:3rem;margin:0;line-height:1.1}
+.ipa{font-size:1.3rem;color:var(--muted);margin:4px 0}
+.es{color:var(--muted);margin:0 0 8px}
+.ex .tr{font-style:normal;color:var(--muted);font-size:.95rem}
+.ex{border-left:4px solid var(--sun);padding:4px 12px;margin:12px 0;font-style:italic}
+.score{font-family:Georgia,serif;font-size:2.4rem;margin:0}
+.bar{height:12px;background:var(--line);border-radius:6px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .4s}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+th{background:#F2F6FA}
+.scroll{overflow-x:auto}
+.pill{padding:2px 10px;border-radius:999px;color:#fff;font-weight:700;font-size:.85rem}
+.card::after{content:"";display:block;clear:both}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:18px 12px 28px;border-top:1px solid var(--line);max-width:960px;margin:0 auto}
+footer b{color:var(--navy)}
+@media(max-width:700px){.layout{grid-template-columns:1fr}.list{max-height:200px}.big{font-size:2.3rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Say it right: English Vocabulary</h1>
+  <p>Escucha, repite y mejora tu pronunciación con feedback inteligente. · Creado por <b class="autor"></b></p>
+  <nav id="tabs">
+    <button data-t="reg" class="on">Registro</button>
+    <button data-t="prac">Practicar</button>
+    <button data-t="prog">Progreso</button>
+  </nav>
+</header>
+
+<main>
+<!-- REGISTRO -->
+<section id="reg" class="on">
+  <div class="card">
+    <h2>Registro del estudiante</h2>
+    <label for="nombre">Nombre completo</label>
+    <input id="nombre" autocomplete="off" placeholder="Ej: María Quispe">
+    <label for="curso">Curso</label>
+    <input id="curso" autocomplete="off" placeholder="Ej: 5to A">
+    <div class="row" style="margin-top:16px">
+      <button class="btn" id="btnReg">Registrarme y empezar</button>
+    </div>
+    <div class="msg" id="regMsg"></div>
+  </div>
+  <div class="card">
+    <h2>Ya estoy registrado</h2>
+    <label for="selEst">Elige tu nombre</label>
+    <select id="selEst"></select>
+    <div class="row" style="margin-top:14px"><button class="btn ghost" id="btnEntrar">Entrar</button></div>
+  </div>
+</section>
+
+<!-- PRACTICA -->
+<section id="prac">
+  <div id="noUser" class="card">Primero regístrate o elige tu nombre en la pestaña <b>Registro</b>.</div>
+  <div id="pracBox" style="display:none">
+    <div class="who" id="whoTag"></div>
+    <label for="catSel">Categoría</label>
+    <select id="catSel" style="max-width:420px;margin-bottom:14px"></select>
+    <div class="layout">
+      <div class="card list" id="wordList" aria-label="Lista de palabras"></div>
+      <div>
+        <div class="card">
+          <p class="big" id="wEn"></p>
+          <p class="ipa" id="wIpa" style="display:none"></p>
+          <p class="es" id="wEs"></p>
+          <div class="ex" id="wEx"></div>
+          <div class="row">
+            <button class="btn sun" id="btnListen">🔊 Escuchar</button>
+            <button class="btn ghost" id="btnSlow">🐢 Más lento</button>
+            <button class="btn rec" id="btnRec">🎤 Practicar</button>
+            <button class="btn ghost" id="btnEx">🔊 Frase</button>
+          </div>
+          <div class="msg" id="status"></div>
+        </div>
+        <div class="card" id="fbCard" style="display:none">
+          <h2>Feedback del asistente</h2>
+          <p class="score" id="sc"></p>
+          <div class="bar"><i id="scBar"></i></div>
+          <p id="heard"></p>
+          <p id="tip"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESO -->
+<section id="prog">
+  <div class="card">
+    <h2>Seguimiento de progreso</h2>
+    <div class="row">
+      <div style="flex:1;min-width:180px">
+        <label for="fCurso">Filtrar por curso</label>
+        <select id="fCurso"></select>
+      </div>
+    </div>
+    <div class="scroll" style="margin-top:14px">
+      <table><thead><tr><th>Estudiante</th><th>Curso</th><th>Intentos</th><th>Palabras dominadas</th><th>Promedio</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody></table>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn ghost" id="btnCsv">Descargar CSV</button>
+    </div>
+  </div>
+  <div class="card" id="detalle" style="display:none">
+    <h2 id="detTitle"></h2>
+    <div class="scroll"><table><thead><tr><th>Palabra</th><th>Mejor puntaje</th><th>Último</th><th>Intentos</th></tr></thead>
+    <tbody id="detBody"></tbody></table></div>
+  </div>
+</section>
+</main>
+<footer id="credito">© 2026 <b class="autor"></b> · Todos los derechos reservados · Prohibida su copia o distribución sin autorización</footer>
+
+<script>
+"use strict";
+// ★ ESCRIBE AQUÍ TU NOMBRE (se muestra en el encabezado y en el pie de página)
+const AUTOR = "MCRn_Technologies2026";
+document.querySelectorAll(".autor").forEach(e => e.textContent = AUTOR);
+document.title += " · " + AUTOR;
+setInterval(() => { if(!document.getElementById("credito")){ const f = document.createElement("footer"); f.id = "credito";
+  f.innerHTML = "© 2026 <b>" + AUTOR + "</b> · Todos los derechos reservados"; document.body.appendChild(f); } }, 3000);
+// ---------- Vocabulario ----------
+const PROF = [
+ ["teacher","/ˈtiːtʃər/","profesor/a","My teacher explains the lesson clearly."],
+ ["doctor","/ˈdɑːktər/","médico/a","The doctor works at the hospital."],
+ ["nurse","/nɜːrs/","enfermero/a","The nurse helps the patients."],
+ ["engineer","/ˌendʒɪˈnɪr/","ingeniero/a","My uncle is an engineer."],
+ ["lawyer","/ˈlɔːjər/","abogado/a","The lawyer speaks in court."],
+ ["dentist","/ˈdentɪst/","dentista","The dentist checks my teeth."],
+ ["pilot","/ˈpaɪlət/","piloto","The pilot flies the plane."],
+ ["firefighter","/ˈfaɪərˌfaɪtər/","bombero/a","The firefighter saves people."],
+ ["police officer","/pəˈliːs ˌɔːfɪsər/","policía","The police officer protects the city."],
+ ["farmer","/ˈfɑːrmər/","agricultor/a","The farmer grows vegetables."],
+ ["chef","/ʃef/","cocinero/a","The chef cooks delicious food."],
+ ["waiter","/ˈweɪtər/","mesero","The waiter brings the menu."],
+ ["mechanic","/məˈkænɪk/","mecánico/a","The mechanic fixes cars."],
+ ["electrician","/ɪˌlekˈtrɪʃn/","electricista","The electrician repairs the lights."],
+ ["architect","/ˈɑːrkɪtekt/","arquitecto/a","The architect designs buildings."],
+ ["journalist","/ˈdʒɜːrnəlɪst/","periodista","The journalist writes the news."],
+ ["scientist","/ˈsaɪəntɪst/","científico/a","The scientist works in a laboratory."],
+ ["accountant","/əˈkaʊntənt/","contador/a","The accountant checks the numbers."],
+ ["receptionist","/rɪˈsepʃənɪst/","recepcionista","The receptionist answers the phone."],
+ ["veterinarian","/ˌvetərɪˈneriən/","veterinario/a","The veterinarian takes care of animals."],
+ ["photographer","/fəˈtɑːɡrəfər/","fotógrafo/a","The photographer takes beautiful pictures."],
+ ["musician","/mjuˈzɪʃn/","músico/a","The musician plays the guitar."]
+];
+const P = s => s.trim().split("\n").map(l => { const [a,b,c] = l.split("|"); return [a,"",b,c]; });
+const CATS = [
+ {en:"Professions & Occupations",es:"Profesiones y ocupaciones",words:PROF},
+ {en:"People & Family",es:"Personas y familia",words:P(`
+mother|madre|My mother cooks every day.
+father|padre|My father works downtown.
+brother|hermano|My brother plays soccer.
+sister|hermana|My sister is older than me.
+grandmother|abuela|My grandmother tells stories.
+grandfather|abuelo|My grandfather lives in the country.
+uncle|tío|My uncle visits us on Sundays.
+aunt|tía|My aunt makes great cakes.
+cousin|primo/a|My cousin is my best friend.
+neighbor|vecino/a|Our neighbor is very kind.
+son|hijo|He is my son.
+daughter|hija|Her daughter is five.
+husband|esposo|Her husband is tall.
+wife|esposa|His wife is a nurse.
+baby|bebé|The baby is sleeping.
+friend|amigo/a|My friend lives nearby.
+parents|padres|My parents are at home.
+grandparents|abuelos|I visit my grandparents.
+boy|niño|The boy is running.
+girl|niña|The girl is reading.`)},
+ {en:"Home & Objects",es:"Hogar y objetos",words:P(`
+kitchen|cocina|We cook in the kitchen.
+bedroom|dormitorio|I sleep in my bedroom.
+bathroom|baño|The bathroom is clean.
+window|ventana|Open the window, please.
+door|puerta|Close the door.
+table|mesa|The book is on the table.
+chair|silla|Sit on the chair.
+mirror|espejo|I look in the mirror.
+refrigerator|refrigerador|The milk is in the refrigerator.
+blanket|manta|I need a warm blanket.
+roof|techo|The roof is red.
+floor|piso|Clean the floor.
+wall|pared|The wall is white.
+bed|cama|My bed is soft.
+sofa|sofá|We sit on the sofa.
+television|televisor|Turn off the television.
+clock|reloj de pared|The clock is on the wall.
+key|llave|Where is my key?
+garden|jardín|The garden has flowers.
+stairs|escaleras|Go up the stairs.`)},
+ {en:"School & Education",es:"Escuela y educación",words:P(`
+notebook|cuaderno|Write it in your notebook.
+pencil|lápiz|I need a pencil.
+backpack|mochila|My backpack is heavy.
+homework|tarea|I do my homework at night.
+classroom|aula|Our classroom is big.
+exam|examen|The exam is tomorrow.
+library|biblioteca|I read books in the library.
+eraser|borrador|Use the eraser.
+subject|materia|Math is my favorite subject.
+classmate|compañero/a de clase|My classmate helps me.
+board|pizarra|Write on the board.
+desk|escritorio|My desk is near the window.
+book|libro|Open your book.
+ruler|regla|Use a ruler.
+scissors|tijeras|Cut the paper with scissors.
+glue|pegamento|I need glue.
+paper|papel|Give me a sheet of paper.
+lesson|lección|Today's lesson is easy.
+grade|nota|I got a good grade.
+uniform|uniforme|I wear a uniform.`)},
+ {en:"Food & Drinks",es:"Comida y bebidas",words:P(`
+breakfast|desayuno|I eat breakfast at seven.
+lunch|almuerzo|We have lunch at school.
+dinner|cena|Dinner is ready.
+chicken|pollo|Chicken with rice is tasty.
+vegetables|verduras|Eat more vegetables.
+juice|jugo|I want orange juice.
+water|agua|Drink water every day.
+cheese|queso|I like cheese sandwiches.
+sandwich|sándwich|She makes a sandwich.
+sugar|azúcar|Do you want sugar in your tea?
+bread|pan|I eat bread.
+rice|arroz|Rice is my favorite food.
+egg|huevo|I have an egg for breakfast.
+meat|carne|We eat meat on Sundays.
+fish|pescado|Fish is healthy.
+soup|sopa|The soup is hot.
+salad|ensalada|I want a salad.
+milk|leche|Drink your milk.
+coffee|café|My father drinks coffee.
+cake|pastel|Here is your birthday cake.`)},
+ {en:"Health & Body",es:"Salud y cuerpo",words:P(`
+headache|dolor de cabeza|I have a headache.
+fever|fiebre|He has a high fever.
+medicine|medicina|Take this medicine twice a day.
+cough|tos|My cough is getting better.
+stomach|estómago|My stomach hurts.
+throat|garganta|I have a sore throat.
+healthy|saludable|Fruit is healthy.
+shoulder|hombro|My shoulder hurts.
+knee|rodilla|He hurt his knee.
+heart|corazón|Exercise is good for your heart.
+arm|brazo|He broke his arm.
+leg|pierna|My leg hurts.
+hand|mano|Wash your hands.
+foot|pie|My foot is small.
+head|cabeza|Touch your head.
+eye|ojo|I have something in my eye.
+tooth|diente|I lost a tooth.
+back|espalda|My back hurts.
+mouth|boca|Open your mouth.
+exercise|ejercicio|Exercise every day.`)},
+ {en:"Clothes & Accessories",es:"Ropa y accesorios",words:P(`
+jacket|chaqueta|Wear a jacket, it is cold.
+sweater|suéter|This sweater is warm.
+shirt|camisa|I like your blue shirt.
+trousers|pantalones|These trousers are too long.
+skirt|falda|She wears a red skirt.
+shoes|zapatos|I need new shoes.
+socks|calcetines|Put on your socks.
+scarf|bufanda|I wear a scarf in winter.
+gloves|guantes|Take your gloves.
+necklace|collar|She has a gold necklace.
+dress|vestido|She wears a dress.
+hat|sombrero|He wears a hat.
+cap|gorra|I wear a cap.
+jeans|jeans|These jeans are blue.
+coat|abrigo|Take your coat.
+pajamas|pijama|I sleep in pajamas.
+watch|reloj de pulsera|My watch is new.
+glasses|lentes|She wears glasses.
+belt|cinturón|This belt is black.
+purse|cartera|Her purse is small.`)},
+ {en:"Places & City",es:"Lugares y ciudad",words:P(`
+hospital|hospital|The hospital is near here.
+bank|banco|I go to the bank on Monday.
+supermarket|supermercado|We buy food at the supermarket.
+pharmacy|farmacia|The pharmacy is open.
+restaurant|restaurante|Let's eat at a restaurant.
+museum|museo|The museum is very interesting.
+bridge|puente|We cross the bridge.
+street|calle|My street is quiet.
+park|parque|Children play in the park.
+market|mercado|The market is full of people.
+school|escuela|I walk to school.
+church|iglesia|The church is old.
+bakery|panadería|The bakery smells good.
+square|plaza|We meet in the square.
+hotel|hotel|The hotel is big.
+cinema|cine|Let's go to the cinema.
+stadium|estadio|The stadium is full.
+zoo|zoológico|We visit the zoo.
+town|pueblo|My town is small.
+store|tienda|The store closes at eight.`)},
+ {en:"Transportation",es:"Transporte",words:P(`
+bus|autobús|I take the bus to school.
+train|tren|The train is late.
+airplane|avión|The airplane lands at noon.
+bicycle|bicicleta|I ride my bicycle.
+motorcycle|motocicleta|He has a red motorcycle.
+taxi|taxi|Let's take a taxi.
+airport|aeropuerto|We arrive at the airport early.
+station|estación|Meet me at the station.
+ticket|boleto|I need a ticket to Cusco.
+passenger|pasajero/a|Every passenger has a seat.
+car|auto|My father drives a car.
+truck|camión|The truck is big.
+boat|bote|The boat is on the lake.
+ship|barco|The ship leaves today.
+subway|metro|I take the subway.
+helicopter|helicóptero|The helicopter is loud.
+road|camino|The road is long.
+traffic|tráfico|There is a lot of traffic.
+driver|conductor/a|The driver stops here.
+map|mapa|Look at the map.`)},
+ {en:"Weather & Nature",es:"Clima y naturaleza",words:P(`
+sunny|soleado|Today is sunny.
+rainy|lluvioso|It is a rainy day.
+cloudy|nublado|The sky is cloudy.
+windy|ventoso|It is cold and windy.
+thunderstorm|tormenta|A thunderstorm is coming.
+snow|nieve|There is snow on the mountain.
+mountain|montaña|We climb the mountain.
+river|río|The river is very long.
+forest|bosque|Many animals live in the forest.
+flower|flor|This flower smells nice.
+rain|lluvia|The rain is heavy.
+wind|viento|The wind is strong.
+sun|sol|The sun is hot.
+moon|luna|The moon is bright.
+star|estrella|I see a star.
+cloud|nube|A cloud covers the sun.
+sea|mar|The sea is blue.
+beach|playa|We walk on the beach.
+tree|árbol|The tree is tall.
+rainbow|arcoíris|Look at the rainbow!`)},
+ {en:"Sports & Hobbies",es:"Deportes y pasatiempos",words:P(`
+soccer|fútbol|We play soccer on Saturdays.
+basketball|baloncesto|He loves basketball.
+swimming|natación|Swimming is great exercise.
+running|correr|Running is my hobby.
+volleyball|voleibol|She plays volleyball at school.
+painting|pintura|Painting makes me relax.
+reading|lectura|Reading is fun.
+dancing|baile|I enjoy dancing.
+camping|acampar|We go camping in summer.
+fishing|pesca|My grandfather likes fishing.
+tennis|tenis|She plays tennis.
+baseball|béisbol|He likes baseball.
+team|equipo|Our team won.
+player|jugador/a|The player scores.
+coach|entrenador/a|The coach is strict.
+ball|pelota|Kick the ball.
+game|juego|It is a great game.
+singing|canto|Singing is fun.
+cycling|ciclismo|Cycling is healthy.
+gardening|jardinería|My aunt loves gardening.`)},
+ {en:"Time & Daily Routines",es:"Tiempo y rutinas",words:P(`
+morning|mañana|I study in the morning.
+afternoon|tarde|We play in the afternoon.
+evening|noche (temprano)|I watch TV in the evening.
+midnight|medianoche|He sleeps at midnight.
+yesterday|ayer|I was at home yesterday.
+tomorrow|mañana (día siguiente)|See you tomorrow.
+weekend|fin de semana|We rest on the weekend.
+calendar|calendario|Look at the calendar.
+schedule|horario|My schedule is full.
+routine|rutina|My daily routine is simple.
+minute|minuto|Wait one minute.
+hour|hora|The class lasts one hour.
+second|segundo|Wait a second.
+day|día|It is a nice day.
+night|noche|Good night!
+week|semana|I work all week.
+month|mes|This month is busy.
+year|año|This year I learn English.
+today|hoy|Today is Wednesday.
+Monday|lunes|On Monday I have English.`)},
+ {en:"Technology & Communication",es:"Tecnología y comunicación",words:P(`
+computer|computadora|I use a computer for homework.
+keyboard|teclado|The keyboard is new.
+screen|pantalla|The screen is broken.
+internet|internet|The internet is slow today.
+password|contraseña|Do not share your password.
+message|mensaje|I sent you a message.
+website|sitio web|This website is useful.
+phone|teléfono|My phone is on the table.
+headphones|audífonos|I listen with headphones.
+application|aplicación|Download this application.
+laptop|portátil|My laptop is light.
+tablet|tableta|I read on a tablet.
+mouse|ratón|Click with the mouse.
+camera|cámara|The camera is new.
+video|video|Watch this video.
+email|correo electrónico|I send an email.
+file|archivo|Save the file.
+battery|batería|The battery is low.
+wifi|wifi|Is there wifi here?
+speaker|parlante|Turn on the speaker.`)},
+ {en:"Essential Verbs",es:"Verbos esenciales",words:P(`
+have|tener|I have two brothers.
+make|hacer|I make my bed every day.
+want|querer|I want a glass of water.
+need|necesitar|We need more time.
+like|gustar|I like music.
+listen|escuchar|Listen to the teacher.
+speak|hablar|Can you speak English?
+understand|entender|I understand the lesson.
+study|estudiar|I study every afternoon.
+work|trabajar|My mother works in a bank.
+learn|aprender|We learn new words.
+help|ayudar|Can you help me?
+buy|comprar|I buy bread every morning.
+wait|esperar|Wait for me here.
+travel|viajar|They travel in summer.
+bring|traer|Bring your notebook.
+choose|elegir|Choose one answer.
+remember|recordar|I remember your name.
+forget|olvidar|Do not forget your keys.
+finish|terminar|I finish at five.
+go|ir|I go to school.
+come|venir|Come here, please.
+see|ver|I see a bird.
+give|dar|Give me the book.
+take|tomar|Take a seat.
+eat|comer|We eat at noon.
+drink|beber|I drink water.
+sleep|dormir|I sleep eight hours.
+open|abrir|Open the door.
+close|cerrar|Close the window.`)},
+ {en:"Essential Adjectives",es:"Adjetivos esenciales",words:P(`
+beautiful|hermoso/a|What a beautiful day!
+important|importante|English is important.
+difficult|difícil|This exercise is difficult.
+easy|fácil|The test was easy.
+expensive|caro/a|That car is expensive.
+cheap|barato/a|These shoes are cheap.
+dangerous|peligroso/a|The road is dangerous.
+comfortable|cómodo/a|This sofa is comfortable.
+famous|famoso/a|She is a famous singer.
+heavy|pesado/a|The box is heavy.
+tired|cansado/a|I am tired today.
+happy|feliz|The children are happy.
+delicious|delicioso/a|The soup is delicious.
+strong|fuerte|He is very strong.
+different|diferente|My bag is different.
+ready|listo/a|Dinner is ready.
+big|grande|It is a big house.
+small|pequeño/a|I have a small dog.
+hot|caliente|The soup is hot.
+cold|frío/a|The water is cold.
+new|nuevo/a|I have a new phone.
+old|viejo/a|My car is old.
+fast|rápido/a|The train is fast.
+slow|lento/a|The turtle is slow.
+tall|alto/a|My brother is tall.
+short|bajo/a|She is short.
+good|bueno/a|This is a good book.
+bad|malo/a|The weather is bad.
+young|joven|My aunt is young.
+clean|limpio/a|My room is clean.`)}
+];
+const TOTAL = CATS.reduce((a,c) => a + c.words.length, 0);
+PROF.forEach(w => w[1] = ""); // sin transcripción fonética
+const EMO = Object.fromEntries(`teacher:👩‍🏫;doctor:🧑‍⚕️;nurse:👩‍⚕️;engineer:👷;lawyer:⚖️;dentist:🦷;pilot:🧑‍✈️;firefighter:🧑‍🚒;police officer:👮;farmer:🧑‍🌾;chef:🧑‍🍳;waiter:🥂;mechanic:🔧;electrician:💡;architect:📐;journalist:📰;scientist:🔬;accountant:🧮;receptionist:🛎️;veterinarian:🐶;photographer:📷;musician:🎸;mother:👩;father:👨;brother:👦;sister:👧;grandmother:👵;grandfather:👴;uncle:👨‍🦱;aunt:👩‍🦰;cousin:🧒;neighbor:🏘️;son:👦;daughter:👧;husband:🤵;wife:👰;baby:👶;friend:🤝;parents:👨‍👩‍👧;grandparents:👵;boy:👦;girl:👧;kitchen:🍳;bedroom:🛏️;bathroom:🛁;window:🪟;door:🚪;table:🍽️;chair:🪑;mirror:🪞;refrigerator:🧊;blanket:🛌;roof:🏠;floor:🧹;wall:🧱;bed:🛏️;sofa:🛋️;television:📺;clock:🕰️;key:🔑;garden:🌷;stairs:🪜;notebook:📓;pencil:✏️;backpack:🎒;homework:📝;classroom:🏫;exam:📋;library:📚;eraser:🧽;subject:🔢;classmate:🧑‍🤝‍🧑;board:🖍️;desk:🗃️;book:📖;ruler:📏;scissors:✂️;glue:🧴;paper:📄;lesson:📘;grade:💯;uniform:👔;breakfast:🥞;lunch:🍱;dinner:🍝;chicken:🍗;vegetables:🥦;juice:🧃;water:💧;cheese:🧀;sandwich:🥪;sugar:🍬;bread:🍞;rice:🍚;egg:🥚;meat:🥩;fish:🐟;soup:🍲;salad:🥗;milk:🥛;coffee:☕;cake:🍰;headache:🤕;fever:🌡️;medicine:💊;cough:😷;stomach:🤢;throat:🗣️;healthy:🍎;shoulder:💪;knee:🦵;heart:❤️;arm:💪;leg:🦵;hand:✋;foot:🦶;head:🧠;eye:👁️;tooth:🦷;back:🧍;mouth:👄;exercise:🏃;jacket:🧥;sweater:🧶;shirt:👕;trousers:👖;skirt:👗;shoes:👟;socks:🧦;scarf:🧣;gloves:🧤;necklace:📿;dress:👗;hat:👒;cap:🧢;jeans:👖;coat:🧥;pajamas:🌙;watch:⌚;glasses:👓;belt:🪢;purse:👛;hospital:🏥;bank:🏦;supermarket:🛒;pharmacy:💊;restaurant:🍽️;museum:🏛️;bridge:🌉;street:🛣️;park:🌳;market:🧺;school:🏫;church:⛪;bakery:🥖;square:🏙️;hotel:🏨;cinema:🎬;stadium:🏟️;zoo:🦁;town:🏘️;store:🏪;bus:🚌;train:🚆;airplane:✈️;bicycle:🚲;motorcycle:🏍️;taxi:🚕;airport:🛫;station:🚉;ticket:🎫;passenger:🧳;car:🚗;truck:🚚;boat:⛵;ship:🚢;subway:🚇;helicopter:🚁;road:🛣️;traffic:🚦;driver:🚖;map:🗺️;sunny:☀️;rainy:🌧️;cloudy:☁️;windy:💨;thunderstorm:⛈️;snow:❄️;mountain:⛰️;river:🏞️;forest:🌲;flower:🌸;rain:☔;wind:🌬️;sun:🌞;moon:🌙;star:⭐;cloud:🌥️;sea:🌊;beach:🏖️;tree:🌳;rainbow:🌈;soccer:⚽;basketball:🏀;swimming:🏊;running:🏃;volleyball:🏐;painting:🎨;reading:📖;dancing:💃;camping:⛺;fishing:🎣;tennis:🎾;baseball:⚾;team:👥;player:🏅;coach:📣;ball:🥎;game:🎮;singing:🎤;cycling:🚴;gardening:🪴;morning:🌅;afternoon:🌇;evening:🌆;midnight:🌃;yesterday:⏪;tomorrow:⏩;weekend:🎉;calendar:📅;schedule:🗓️;routine:🔁;minute:⏱️;hour:⏰;second:⏲️;day:🌤️;night:😴;week:📆;month:🈷️;year:🎆;today:📍;Monday:1️⃣;computer:💻;keyboard:⌨️;screen:🖥️;internet:🌐;password:🔐;message:💬;website:🔗;phone:📱;headphones:🎧;application:📲;laptop:💻;tablet:📱;mouse:🖱️;camera:📷;video:🎥;email:📧;file:📁;battery:🔋;wifi:📶;speaker:🔊;have:🤲;make:🛠️;want:🙏;need:❗;like:👍;listen:👂;speak:🗣️;understand:💡;study:📚;work:💼;learn:🎓;help:🆘;buy:🛍️;wait:⏳;travel:🧳;bring:📦;choose:✅;remember:🧠;forget:🤦;finish:🏁;go:🚶;come:👋;see:👀;give:🎁;take:🤲;eat:🍴;drink:🥤;sleep:😴;open:🔓;close:🔒;beautiful:🌺;important:⭐;difficult:😵;easy:😊;expensive:💰;cheap:🏷️;dangerous:⚠️;comfortable:🛋️;famous:🌟;heavy:🏋️;tired:🥱;happy:😄;delicious:😋;strong:💪;different:🔀;ready:✅;big:🐘;small:🐭;hot:🔥;cold:🥶;new:🆕;old:👴;fast:🐇;slow:🐢;tall:🦒;short:🧍;good:👍;bad:👎;young:🧒;clean:✨`.split(";").map(x => x.split(":")));
+const TR = `Mi profesor explica la lección con claridad. ¦ El médico trabaja en el hospital. ¦ La enfermera ayuda a los pacientes. ¦ Mi tío es ingeniero. ¦ El abogado habla en el tribunal. ¦ El dentista revisa mis dientes. ¦ El piloto vuela el avión. ¦ El bombero salva a las personas. ¦ El policía protege la ciudad. ¦ El agricultor cultiva verduras. ¦ El cocinero prepara comida deliciosa. ¦ El mesero trae el menú. ¦ El mecánico arregla autos. ¦ El electricista repara las luces. ¦ El arquitecto diseña edificios. ¦ El periodista escribe las noticias. ¦ El científico trabaja en un laboratorio. ¦ El contador revisa los números. ¦ La recepcionista contesta el teléfono. ¦ El veterinario cuida a los animales. ¦ El fotógrafo toma fotos hermosas. ¦ El músico toca la guitarra.
+Mi madre cocina todos los días. ¦ Mi padre trabaja en el centro. ¦ Mi hermano juega fútbol. ¦ Mi hermana es mayor que yo. ¦ Mi abuela cuenta historias. ¦ Mi abuelo vive en el campo. ¦ Mi tío nos visita los domingos. ¦ Mi tía hace pasteles deliciosos. ¦ Mi primo es mi mejor amigo. ¦ Nuestro vecino es muy amable. ¦ Él es mi hijo. ¦ Su hija tiene cinco años. ¦ Su esposo es alto. ¦ Su esposa es enfermera. ¦ El bebé está durmiendo. ¦ Mi amigo vive cerca. ¦ Mis padres están en casa. ¦ Visito a mis abuelos. ¦ El niño está corriendo. ¦ La niña está leyendo.
+Cocinamos en la cocina. ¦ Duermo en mi dormitorio. ¦ El baño está limpio. ¦ Abre la ventana, por favor. ¦ Cierra la puerta. ¦ El libro está sobre la mesa. ¦ Siéntate en la silla. ¦ Me miro en el espejo. ¦ La leche está en el refrigerador. ¦ Necesito una manta abrigada. ¦ El techo es rojo. ¦ Limpia el piso. ¦ La pared es blanca. ¦ Mi cama es suave. ¦ Nos sentamos en el sofá. ¦ Apaga el televisor. ¦ El reloj está en la pared. ¦ ¿Dónde está mi llave? ¦ El jardín tiene flores. ¦ Sube las escaleras.
+Escríbelo en tu cuaderno. ¦ Necesito un lápiz. ¦ Mi mochila es pesada. ¦ Hago mi tarea por la noche. ¦ Nuestra aula es grande. ¦ El examen es mañana. ¦ Leo libros en la biblioteca. ¦ Usa el borrador. ¦ Matemáticas es mi materia favorita. ¦ Mi compañero de clase me ayuda. ¦ Escribe en la pizarra. ¦ Mi escritorio está cerca de la ventana. ¦ Abre tu libro. ¦ Usa una regla. ¦ Corta el papel con tijeras. ¦ Necesito pegamento. ¦ Dame una hoja de papel. ¦ La lección de hoy es fácil. ¦ Saqué una buena nota. ¦ Uso uniforme.
+Desayuno a las siete. ¦ Almorzamos en la escuela. ¦ La cena está lista. ¦ El pollo con arroz es sabroso. ¦ Come más verduras. ¦ Quiero jugo de naranja. ¦ Bebe agua todos los días. ¦ Me gustan los sándwiches de queso. ¦ Ella prepara un sándwich. ¦ ¿Quieres azúcar en tu té? ¦ Como pan. ¦ El arroz es mi comida favorita. ¦ Desayuno un huevo. ¦ Comemos carne los domingos. ¦ El pescado es saludable. ¦ La sopa está caliente. ¦ Quiero una ensalada. ¦ Toma tu leche. ¦ Mi padre toma café. ¦ Aquí tienes tu pastel de cumpleaños.
+Tengo dolor de cabeza. ¦ Él tiene fiebre alta. ¦ Toma esta medicina dos veces al día. ¦ Mi tos está mejorando. ¦ Me duele el estómago. ¦ Tengo dolor de garganta. ¦ La fruta es saludable. ¦ Me duele el hombro. ¦ Él se lastimó la rodilla. ¦ El ejercicio es bueno para el corazón. ¦ Él se rompió el brazo. ¦ Me duele la pierna. ¦ Lávate las manos. ¦ Mi pie es pequeño. ¦ Tócate la cabeza. ¦ Tengo algo en el ojo. ¦ Perdí un diente. ¦ Me duele la espalda. ¦ Abre la boca. ¦ Haz ejercicio todos los días.
+Ponte una chaqueta, hace frío. ¦ Este suéter es abrigado. ¦ Me gusta tu camisa azul. ¦ Estos pantalones son demasiado largos. ¦ Ella usa una falda roja. ¦ Necesito zapatos nuevos. ¦ Ponte los calcetines. ¦ Uso bufanda en invierno. ¦ Lleva tus guantes. ¦ Ella tiene un collar de oro. ¦ Ella usa un vestido. ¦ Él usa un sombrero. ¦ Uso una gorra. ¦ Estos jeans son azules. ¦ Lleva tu abrigo. ¦ Duermo en pijama. ¦ Mi reloj es nuevo. ¦ Ella usa lentes. ¦ Este cinturón es negro. ¦ Su cartera es pequeña.
+El hospital está cerca de aquí. ¦ Voy al banco el lunes. ¦ Compramos comida en el supermercado. ¦ La farmacia está abierta. ¦ Comamos en un restaurante. ¦ El museo es muy interesante. ¦ Cruzamos el puente. ¦ Mi calle es tranquila. ¦ Los niños juegan en el parque. ¦ El mercado está lleno de gente. ¦ Camino a la escuela. ¦ La iglesia es antigua. ¦ La panadería huele rico. ¦ Nos encontramos en la plaza. ¦ El hotel es grande. ¦ Vamos al cine. ¦ El estadio está lleno. ¦ Visitamos el zoológico. ¦ Mi pueblo es pequeño. ¦ La tienda cierra a las ocho.
+Tomo el autobús a la escuela. ¦ El tren llega tarde. ¦ El avión aterriza al mediodía. ¦ Ando en mi bicicleta. ¦ Él tiene una motocicleta roja. ¦ Tomemos un taxi. ¦ Llegamos temprano al aeropuerto. ¦ Encuéntrame en la estación. ¦ Necesito un boleto a Cusco. ¦ Cada pasajero tiene un asiento. ¦ Mi padre maneja un auto. ¦ El camión es grande. ¦ El bote está en el lago. ¦ El barco sale hoy. ¦ Tomo el metro. ¦ El helicóptero hace mucho ruido. ¦ El camino es largo. ¦ Hay mucho tráfico. ¦ El conductor se detiene aquí. ¦ Mira el mapa.
+Hoy está soleado. ¦ Es un día lluvioso. ¦ El cielo está nublado. ¦ Hace frío y hay viento. ¦ Se acerca una tormenta. ¦ Hay nieve en la montaña. ¦ Escalamos la montaña. ¦ El río es muy largo. ¦ Muchos animales viven en el bosque. ¦ Esta flor huele bien. ¦ La lluvia es fuerte. ¦ El viento es fuerte. ¦ El sol es caliente. ¦ La luna brilla. ¦ Veo una estrella. ¦ Una nube cubre el sol. ¦ El mar es azul. ¦ Caminamos por la playa. ¦ El árbol es alto. ¦ ¡Mira el arcoíris!
+Jugamos fútbol los sábados. ¦ Él ama el baloncesto. ¦ Nadar es un gran ejercicio. ¦ Correr es mi pasatiempo. ¦ Ella juega voleibol en la escuela. ¦ Pintar me relaja. ¦ Leer es divertido. ¦ Disfruto bailar. ¦ Vamos de campamento en verano. ¦ A mi abuelo le gusta pescar. ¦ Ella juega tenis. ¦ A él le gusta el béisbol. ¦ Nuestro equipo ganó. ¦ El jugador anota. ¦ El entrenador es estricto. ¦ Patea la pelota. ¦ Es un gran juego. ¦ Cantar es divertido. ¦ El ciclismo es saludable. ¦ A mi tía le encanta la jardinería.
+Estudio por la mañana. ¦ Jugamos por la tarde. ¦ Veo televisión por la noche. ¦ Él duerme a medianoche. ¦ Ayer estuve en casa. ¦ Nos vemos mañana. ¦ Descansamos el fin de semana. ¦ Mira el calendario. ¦ Mi horario está lleno. ¦ Mi rutina diaria es sencilla. ¦ Espera un minuto. ¦ La clase dura una hora. ¦ Espera un segundo. ¦ Es un lindo día. ¦ ¡Buenas noches! ¦ Trabajo toda la semana. ¦ Este mes está muy ocupado. ¦ Este año aprendo inglés. ¦ Hoy es miércoles. ¦ El lunes tengo inglés.
+Uso una computadora para la tarea. ¦ El teclado es nuevo. ¦ La pantalla está rota. ¦ El internet está lento hoy. ¦ No compartas tu contraseña. ¦ Te envié un mensaje. ¦ Este sitio web es útil. ¦ Mi teléfono está sobre la mesa. ¦ Escucho con audífonos. ¦ Descarga esta aplicación. ¦ Mi portátil es liviana. ¦ Leo en una tableta. ¦ Haz clic con el ratón. ¦ La cámara es nueva. ¦ Mira este video. ¦ Envío un correo electrónico. ¦ Guarda el archivo. ¦ La batería está baja. ¦ ¿Hay wifi aquí? ¦ Enciende el parlante.
+Tengo dos hermanos. ¦ Hago mi cama todos los días. ¦ Quiero un vaso de agua. ¦ Necesitamos más tiempo. ¦ Me gusta la música. ¦ Escucha al profesor. ¦ ¿Puedes hablar inglés? ¦ Entiendo la lección. ¦ Estudio todas las tardes. ¦ Mi madre trabaja en un banco. ¦ Aprendemos palabras nuevas. ¦ ¿Puedes ayudarme? ¦ Compro pan todas las mañanas. ¦ Espérame aquí. ¦ Ellos viajan en verano. ¦ Trae tu cuaderno. ¦ Elige una respuesta. ¦ Recuerdo tu nombre. ¦ No olvides tus llaves. ¦ Termino a las cinco. ¦ Voy a la escuela. ¦ Ven aquí, por favor. ¦ Veo un pájaro. ¦ Dame el libro. ¦ Toma asiento. ¦ Comemos al mediodía. ¦ Bebo agua. ¦ Duermo ocho horas. ¦ Abre la puerta. ¦ Cierra la ventana.
+¡Qué día tan hermoso! ¦ El inglés es importante. ¦ Este ejercicio es difícil. ¦ La prueba fue fácil. ¦ Ese auto es caro. ¦ Estos zapatos son baratos. ¦ El camino es peligroso. ¦ Este sofá es cómodo. ¦ Ella es una cantante famosa. ¦ La caja es pesada. ¦ Hoy estoy cansado. ¦ Los niños están felices. ¦ La sopa está deliciosa. ¦ Él es muy fuerte. ¦ Mi bolso es diferente. ¦ La cena está lista. ¦ Es una casa grande. ¦ Tengo un perro pequeño. ¦ La sopa está caliente. ¦ El agua está fría. ¦ Tengo un teléfono nuevo. ¦ Mi auto es viejo. ¦ El tren es rápido. ¦ La tortuga es lenta. ¦ Mi hermano es alto. ¦ Ella es baja. ¦ Este es un buen libro. ¦ El clima es malo. ¦ Mi tía es joven. ¦ Mi cuarto está limpio.`.split("\n").map(l => l.split(" ¦ "));
+CATS.forEach((c,i) => c.words.forEach((w,j) => w[4] = TR[i][j]));
+let WORDS = PROF, catIdx = 0;
+const KEY = "pronun_profesiones_v1";
+const $ = id => document.getElementById(id);
+
+// ---------- Datos ----------
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {students:{},current:null}; }catch(e){ return {students:{},current:null}; } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(db)); }catch(e){ alert("No se pudo guardar el progreso en este navegador."); } }
+let db = load();
+let selWord = 0;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const cur = () => db.students[db.current];
+const colorOf = s => s>=80 ? "ok" : s>=60 ? "mid" : "bad";
+
+// ---------- Pestañas ----------
+function tab(t){
+  document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id===t));
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t===t));
+  if(t==="prog") renderProg();
+  if(t==="prac") renderPrac();
+  if(t==="reg") renderSelect();
+}
+$("tabs").addEventListener("click", e => { if(e.target.dataset.t) tab(e.target.dataset.t); });
+
+// ---------- Registro ----------
+function renderSelect(){
+  const ids = Object.keys(db.students);
+  $("selEst").innerHTML = ids.length
+    ? ids.map(id => `<option value="${esc(id)}" ${id===db.current?"selected":""}>${esc(db.students[id].name)} — ${esc(db.students[id].course)}</option>`).join("")
+    : `<option value="">Aún no hay estudiantes registrados</option>`;
+}
+$("btnReg").onclick = () => {
+  const name = $("nombre").value.trim(), course = $("curso").value.trim();
+  if(!name || !course){ $("regMsg").style.color="var(--bad)"; $("regMsg").textContent="Escribe tu nombre y tu curso."; return; }
+  const id = (name+"|"+course).toLowerCase();
+  if(!db.students[id]) db.students[id] = {name, course, words:{}, created:Date.now()};
+  db.current = id; save();
+  $("regMsg").style.color="var(--ok)"; $("regMsg").textContent="¡Listo, "+name+"! Ya puedes practicar.";
+  $("nombre").value=""; $("curso").value="";
+  setTimeout(()=>tab("prac"), 700);
+};
+$("btnEntrar").onclick = () => {
+  const id = $("selEst").value; if(!id) return;
+  db.current = id; save(); tab("prac");
+};
+
+// ---------- Práctica ----------
+function renderPrac(){
+  const s = cur();
+  $("noUser").style.display = s ? "none" : "block";
+  $("pracBox").style.display = s ? "block" : "none";
+  if(!s) return;
+  $("whoTag").textContent = "👤 " + s.name + " · " + s.course;
+  $("catSel").innerHTML = CATS.map((c,i) => { const m = c.words.filter(w => s.words[w[0]] && s.words[w[0]].best>=80).length;
+    return `<option value="${i}" ${i===catIdx?"selected":""}>${esc(c.en)} — ${esc(c.es)} (${m}/${c.words.length})</option>`; }).join("");
+  WORDS = CATS[catIdx].words;
+  $("wordList").innerHTML = WORDS.map((w,i) => {
+    const r = s.words[w[0]];
+    return `<button data-i="${i}" class="${i===selWord?"sel":""}"><span>${EMO[w[0]]||""} ${w[0]}</span><span class="dot ${r?colorOf(r.best):""}"></span></button>`;
+  }).join("");
+  const w = WORDS[selWord];
+  $("wEn").textContent = w[0]; $("wEs").textContent = w[2]; $("wEx").innerHTML = esc(w[3]) + `<br><span class="tr">${esc(w[4])}</span>`;
+  $("fbCard").style.display = "none"; $("status").textContent = "";
+}
+$("wordList").addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  selWord = +b.dataset.i; renderPrac();
+});
+
+$("catSel").onchange = () => { catIdx = +$("catSel").value; selWord = 0; renderPrac(); };
+
+function speak(text, rate){
+  if(!("speechSynthesis" in window)){ $("status").textContent="Tu navegador no tiene voz. Usa Google Chrome."; return; }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang="en-US"; u.rate=rate;
+  const v = speechSynthesis.getVoices().find(v => v.lang.startsWith("en"));
+  if(v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+$("btnListen").onclick = () => speak(WORDS[selWord][0], .9);
+$("btnSlow").onclick = () => speak(WORDS[selWord][0], .5);
+$("btnEx").onclick = () => speak(WORDS[selWord][3], .85);
+speechSynthesis && speechSynthesis.getVoices();
+
+// Similitud (Levenshtein)
+function sim(a,b){
+  a=a.toLowerCase().replace(/[^a-z ]/g,"").trim(); b=b.toLowerCase().replace(/[^a-z ]/g,"").trim();
+  if(!a.length && !b.length) return 1;
+  const d = Array.from({length:a.length+1},(_,i)=>[i,...Array(b.length).fill(0)]);
+  for(let j=1;j<=b.length;j++) d[0][j]=j;
+  for(let i=1;i<=a.length;i++) for(let j=1;j<=b.length;j++)
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return 1 - d[a.length][b.length]/Math.max(a.length,b.length);
+}
+
+let rec = null, listening = false;
+$("btnRec").onclick = () => {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){ $("status").textContent="El reconocimiento de voz solo funciona en Google Chrome."; return; }
+  if(listening){ rec.stop(); return; }
+  rec = new SR(); rec.lang="en-US"; rec.maxAlternatives=5; rec.interimResults=false;
+  rec.onstart = () => { listening=true; $("btnRec").classList.add("live"); $("btnRec").textContent="⏹ Escuchando..."; $("status").textContent="Di la palabra en voz alta."; };
+  rec.onend = () => { listening=false; $("btnRec").classList.remove("live"); $("btnRec").textContent="🎤 Practicar"; };
+  rec.onerror = e => { $("status").textContent = e.error==="not-allowed" ? "Permite el micrófono en Chrome (icono del candado)." : e.error==="no-speech" ? "No te escuché. Inténtalo otra vez." : "Error: "+e.error; };
+  rec.onresult = e => evaluate(e.results[0]);
+  try{ rec.start(); }catch(err){}
+};
+
+function evaluate(res){
+  const target = WORDS[selWord][0];
+  let best = 0, heard = res[0].transcript;
+  for(let i=0;i<res.length;i++){
+    let s = sim(res[i].transcript, target);
+    if(i===0) s = s*0.7 + 0.3*(res[i].confidence||0) * (s>.6?1:.5); // la 1ª opción pesa más
+    if(i>0) s *= 0.85;
+    if(s>best){ best=s; }
+  }
+  const score = Math.round(Math.min(1,best)*100);
+  const first = sim(res[0].transcript, target);
+  let tip;
+  if(score>=85) tip = "¡Excelente! Tu pronunciación se entiende muy bien. Pasa a la siguiente palabra.";
+  else if(score>=65) tip = "Bien, pero puedes mejorar. Escucha el modelo en velocidad lenta y marca bien la sílaba tónica: " + WORDS[selWord][1] + ".";
+  else tip = "Casi. El sistema entendió algo distinto. Escucha el modelo, divide la palabra en sílabas y repite despacio.";
+  if(first<.5 && score<85) tip += " Cuidado con los sonidos finales (-er, -ist, -ian) que no existen igual en español.";
+  $("fbCard").style.display = "block";
+  $("sc").textContent = score + " / 100";
+  $("sc").style.color = `var(--${colorOf(score)})`;
+  $("scBar").style.width = score+"%"; $("scBar").style.background = `var(--${colorOf(score)})`;
+  $("heard").innerHTML = "Entendí: <b>“" + esc(heard) + "”</b> · Objetivo: <b>" + esc(target) + "</b>";
+  $("tip").textContent = tip;
+  $("status").textContent = "";
+  const s = cur(); const r = s.words[target] || {best:0,last:0,attempts:0};
+  r.attempts++; r.last = score; r.best = Math.max(r.best, score); r.date = Date.now();
+  s.words[target] = r; save();
+  document.querySelectorAll("#wordList button")[selWord].querySelector(".dot").className = "dot " + colorOf(r.best);
+}
+
+// ---------- Progreso ----------
+function stats(s){
+  const arr = Object.values(s.words);
+  const attempts = arr.reduce((a,r)=>a+r.attempts,0);
+  const mastered = arr.filter(r=>r.best>=80).length;
+  const avg = arr.length ? Math.round(arr.reduce((a,r)=>a+r.best,0)/arr.length) : 0;
+  return {attempts, mastered, avg};
+}
+function renderProg(){
+  const courses = [...new Set(Object.values(db.students).map(s=>s.course))].sort();
+  const prev = $("fCurso").value;
+  $("fCurso").innerHTML = `<option value="">Todos los cursos</option>` + courses.map(c=>`<option ${c===prev?"selected":""}>${esc(c)}</option>`).join("");
+  const f = $("fCurso").value;
+  const list = Object.entries(db.students).filter(([id,s]) => !f || s.course===f);
+  $("tbody").innerHTML = list.length ? list.map(([id,s]) => {
+    const st = stats(s);
+    return `<tr><td>${esc(s.name)}</td><td>${esc(s.course)}</td><td>${st.attempts}</td><td>${st.mastered} / ${TOTAL}</td>
+    <td><span class="pill" style="background:var(--${colorOf(st.avg)})">${st.avg}</span></td>
+    <td><button class="btn ghost" data-id="${esc(id)}">Ver detalle</button></td></tr>`;
+  }).join("") : `<tr><td colspan="6">Aún no hay estudiantes. Regístralos en la pestaña Registro.</td></tr>`;
+  $("detalle").style.display = "none";
+}
+$("fCurso").onchange = renderProg;
+$("tbody").addEventListener("click", e => {
+  const id = e.target.dataset.id; if(!id) return;
+  const s = db.students[id];
+  $("detTitle").textContent = s.name + " — " + s.course;
+  $("detBody").innerHTML = CATS.map(c => `<tr><th colspan="4">${esc(c.en)} — ${esc(c.es)}</th></tr>` + c.words.map(w => {
+    const r = s.words[w[0]];
+    return r ? `<tr><td>${w[0]}</td><td><span class="pill" style="background:var(--${colorOf(r.best)})">${r.best}</span></td><td>${r.last}</td><td>${r.attempts}</td></tr>`
+             : `<tr><td>${w[0]}</td><td colspan="3" style="color:var(--muted)">Sin practicar</td></tr>`;
+  }).join("")).join("");
+  $("detalle").style.display = "block"; $("detalle").scrollIntoView({behavior:"smooth"});
+});
+$("btnCsv").onclick = () => {
+  let csv = "Estudiante,Curso,Intentos,Palabras dominadas,Promedio\n";
+  Object.values(db.students).forEach(s => { const t=stats(s); csv += `"${s.name}","${s.course}",${t.attempts},${t.mastered},${t.avg}\n`; });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv"}));
+  a.download = "progreso_pronunciacion.csv"; a.click();
+};
+
+renderSelect();
+if(db.current && db.students[db.current]) tab("prac");
+</script>
+</body>
+</html>
